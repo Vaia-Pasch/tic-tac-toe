@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+  }
+
+h1 {
+    font-family:monospace;
+    font-size: 3em;
+    color: cornflowerblue;
+} h1:hover {
+    color: rgb(255, 4, 159);
+}
+
+
+div {
+    width: 100px;
+    height: 100px;
+  }
+
+#board {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+.cell {
+    background-color: rgb(192, 146, 128);
+    margin: 10px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell.x,
+.cell.circle {
+    cursor:not-allowed;
+}
+
+.cell.x::before,
+.cell.x::after{
+    content: "";
+    position: absolute;
+    width:10px;
+    height:70px;
+    background-color: rgb(157, 255, 0);
+}
+
+.cell.x::before{
+    transform: rotate(45deg);
+}
+
+.cell.x::after {
+    transform: rotate(-45deg);
+}
+
+.cell.circle::before,
+.cell.circle::after
+ {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.cell.circle::before {
+    width:70px;
+    height:70px;
+    background-color: rgb(157, 255, 0);
+}
+
+.cell.circle::after{
+    width:50px;
+    height:50px;
+    background-color: rgb(192, 146, 128);
+}
+
+.winning-message {
+    display: none;
+    background-color: rgba(0, 0, 0, .9);
+    width: 100vw;
+    height: 100vh;
+    color: rgb(238, 255, 0);
+    font-size: 5rem;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    flex-direction: column;
+}
+
+.winning-message button {
+    height: 20vh;
+    margin-top: 30%;
+    font-size: 3rem;
+    background-color: rgb(255, 196, 0);
+    border-style: none;
+    padding: .25em .5em;
+    cursor: pointer;
+  }
+  
+  .winning-message button:hover {
+    background-color: rgb(255, 208, 0);
+    color: rgb(109, 0, 136);
+  }
+  
+  .winning-message.show {
+    display: flex;
+  }
+
+   
